@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div class="input_block">
+    <div class="input_block" id="inpBl">
         <div>
             <input id="input" type="text" autofocus placeholder="Введите код">
             <button id="button">OK</button>
@@ -26,12 +26,14 @@
         const input = document.querySelector('#input');
         const msg = document.querySelector('#msg');
         const foto = document.querySelector('#foto');
+        const inpBl = document.querySelector('#inpBl');
 
         button.addEventListener('click', () => {
             if (input.value === '3692581') {
                 foto.classList.toggle('disp_block')
                 input.classList.toggle('disp_none')
                 button.classList.toggle('disp_none')
+                inpBl.classList.add('disp_none')
                 msg.classList.remove('disp_block')
             } else {
                 msg.classList.add('disp_block')
@@ -48,7 +50,7 @@
 
     .input_block {
         display: flex;
-        margin-top: 5%;
+        margin-top: 10%;
         justify-content: center;
     }
 
@@ -64,6 +66,12 @@
     .disp_block {
         display: block;
         text-align: center;
+    }
+
+    @media (max-width: 625px) {
+        .input_block {
+            margin-top: 50%;
+        }
     }
 </style>
 
